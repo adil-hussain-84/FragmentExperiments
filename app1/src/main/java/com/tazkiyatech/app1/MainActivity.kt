@@ -8,22 +8,15 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
-    private var _fragmentContainer: ViewGroup? = null
-
-    private val fragmentContainer: ViewGroup
-        get() {
-            var frameLayout = _fragmentContainer
-            if (frameLayout == null) {
-                frameLayout = FrameLayout(this)
-                frameLayout.id = R.id.fragmentContainer
-                frameLayout.layoutParams = FrameLayout.LayoutParams(
-                    FrameLayout.LayoutParams.MATCH_PARENT,
-                    FrameLayout.LayoutParams.MATCH_PARENT
-                )
-                _fragmentContainer = frameLayout
-            }
-            return frameLayout
-        }
+    private val fragmentContainer by lazy {
+        val frameLayout = FrameLayout(this)
+        frameLayout.id = R.id.fragmentContainer
+        frameLayout.layoutParams = FrameLayout.LayoutParams(
+            FrameLayout.LayoutParams.MATCH_PARENT,
+            FrameLayout.LayoutParams.MATCH_PARENT
+        )
+        frameLayout
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +30,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun addFragmentContainer() {
-        val rootView = findViewById<FrameLayout>(R.id.rootView)
+        val rootView = findViewById<ViewGroup>(R.id.rootView)
 
         rootView.removeAllViews()
         rootView.addView(fragmentContainer)
