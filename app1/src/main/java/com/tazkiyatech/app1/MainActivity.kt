@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
 
         if (fragment == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, MainFragment())
+                .add(R.id.fragmentContainer, MainFragment())
                 .commit()
         }
     }
