@@ -32,12 +32,18 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        addFragmentContainer()
+        addFragment()
+    }
 
+    private fun addFragmentContainer() {
         val rootView = findViewById<FrameLayout>(R.id.rootView)
 
         rootView.removeAllViews()
         rootView.addView(fragmentContainer)
+    }
 
+    private fun addFragment() {
         val fragment = supportFragmentManager.findFragmentById(R.id.fragmentContainer)
 
         if (fragment == null) {
