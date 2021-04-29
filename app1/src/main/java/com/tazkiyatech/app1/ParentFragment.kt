@@ -43,15 +43,15 @@ class ParentFragment : Fragment() {
             FrameLayout.LayoutParams.MATCH_PARENT
         )
 
-        val customFrameLayout = view.findViewById<CustomFrameLayout>(R.id.customFrameLayout)
-        customFrameLayout.setContentView(contentView)
+        val customFrameLayout = view.findViewById<FrameLayout>(R.id.frameLayout)
+        customFrameLayout.addView(contentView)
     }
 
     override fun onResume() {
         super.onResume()
 
-        val customFrameLayout = view!!.findViewById<CustomFrameLayout>(R.id.customFrameLayout)
-        val contentView = customFrameLayout.getContentView() as ViewGroup
+        val customFrameLayout = view!!.findViewById<FrameLayout>(R.id.frameLayout)
+        val contentView = customFrameLayout.getChildAt(0) as ViewGroup
 
         contentView.removeAllViews()
         contentView.addView(fragmentContainer)
