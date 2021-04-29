@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        addFragmentContainer()
+        addFragmentContainer() // move this call to 'onCreate(savedInstanceState:)' for the 'MainActivityInstrumentedTest.recreate_activity()' test method to pass
         addFragment()
     }
 
