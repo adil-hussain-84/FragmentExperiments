@@ -36,15 +36,15 @@ class MainActivity : AppCompatActivity() {
             FrameLayout.LayoutParams.MATCH_PARENT
         )
 
-        val customFrameLayout = findViewById<FrameLayout>(R.id.rootView)
-        customFrameLayout.addView(contentView)
+        val rootView = findViewById<FrameLayout>(R.id.rootView)
+        rootView.addView(contentView)
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onStart() {
+        super.onStart()
 
-        val frameLayout = findViewById<FrameLayout>(R.id.rootView)
-        val contentView = frameLayout.getChildAt(0) as ViewGroup
+        val rootView = findViewById<FrameLayout>(R.id.rootView)
+        val contentView = rootView.getChildAt(0) as ViewGroup
 
         contentView.removeAllViews()
         contentView.addView(fragmentContainer)
