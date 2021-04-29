@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
             Log.d("Foo", "Null fragment in fragmentContainer")
 
             supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, ChildFragment())
+                .replace(R.id.fragmentContainer, MainFragment())
                 .commit()
         } else {
             Log.d("Foo", "Non-null fragment in fragmentContainer")
