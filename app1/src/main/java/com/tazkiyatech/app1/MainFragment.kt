@@ -10,6 +10,16 @@ import java.util.*
 
 class MainFragment : Fragment() {
 
+    private lateinit var date: Date
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val dateMillis = savedInstanceState?.getLong("date") ?: Date().time
+
+        date = Date(dateMillis)
+    }
+
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -18,6 +28,11 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.findViewById<TextView>(R.id.textView).text = Date().toString()
+        view.findViewById<TextView>(R.id.textView).text = date.toString()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putLong("date", date.time)
     }
 }
