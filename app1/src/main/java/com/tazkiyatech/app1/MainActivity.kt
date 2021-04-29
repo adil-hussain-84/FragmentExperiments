@@ -28,26 +28,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
-
-        val contentView = FrameLayout(this)
-        contentView.id = R.id.contentView
-        contentView.layoutParams = FrameLayout.LayoutParams(
-            FrameLayout.LayoutParams.MATCH_PARENT,
-            FrameLayout.LayoutParams.MATCH_PARENT
-        )
-
-        val rootView = findViewById<FrameLayout>(R.id.rootView)
-        rootView.addView(contentView)
     }
 
     override fun onStart() {
         super.onStart()
 
         val rootView = findViewById<FrameLayout>(R.id.rootView)
-        val contentView = rootView.getChildAt(0) as ViewGroup
 
-        contentView.removeAllViews()
-        contentView.addView(fragmentContainer)
+        rootView.removeAllViews()
+        rootView.addView(fragmentContainer)
 
         val fragment = supportFragmentManager.findFragmentById(R.id.fragmentContainer)
 
