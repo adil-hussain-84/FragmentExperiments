@@ -36,9 +36,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun addFragment() {
-        val fragment = supportFragmentManager.findFragmentById(R.id.fragmentContainer)
-
-        if (fragment == null) {
+        if (supportFragmentManager.findFragmentById(R.id.fragmentContainer) == null) {
             supportFragmentManager.beginTransaction()
                 .add(R.id.fragmentContainer, MainFragment())
                 .commit()
