@@ -1,7 +1,6 @@
 package com.tazkiyatech.app1
 
 import android.os.Bundle
-import android.util.Log
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
@@ -40,13 +39,9 @@ class MainActivity : AppCompatActivity() {
         val fragment = supportFragmentManager.findFragmentById(R.id.fragmentContainer)
 
         if (fragment == null) {
-            Log.d("Foo", "Null fragment in fragmentContainer")
-
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainer, MainFragment())
                 .commit()
-        } else {
-            Log.d("Foo", "Non-null fragment in fragmentContainer")
         }
     }
 }
