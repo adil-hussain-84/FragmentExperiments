@@ -1,5 +1,6 @@
 package com.tazkiyatech.app1
 
+import androidx.lifecycle.Lifecycle
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.ActivityScenario.launch
 import androidx.test.espresso.Espresso.onView
@@ -8,7 +9,6 @@ import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.After
-import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -26,6 +26,19 @@ class MainActivityInstrumentedTest {
     fun launch_activity() {
         // When.
         activityScenario = launch(MainActivity::class.java)
+
+        // Then.
+        onView(withId(R.id.textView)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun pause_and_resume_activity() {
+        // Given.
+        activityScenario = launch(MainActivity::class.java)
+
+        // When.
+        activityScenario.moveToState(Lifecycle.State.CREATED)
+        activityScenario.moveToState(Lifecycle.State.RESUMED)
 
         // Then.
         onView(withId(R.id.textView)).check(matches(isDisplayed()))
