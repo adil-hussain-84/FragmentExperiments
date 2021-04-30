@@ -4,17 +4,18 @@ import android.os.Bundle
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentContainerView
 
 class MainActivity : AppCompatActivity() {
 
-    private val fragmentContainer by lazy {
-        val frameLayout = FrameLayout(this)
-        frameLayout.id = R.id.fragmentContainer
-        frameLayout.layoutParams = FrameLayout.LayoutParams(
-            FrameLayout.LayoutParams.MATCH_PARENT,
-            FrameLayout.LayoutParams.MATCH_PARENT
-        )
-        frameLayout
+    private val fragmentContainerView by lazy {
+        FragmentContainerView(this).apply {
+            id = R.id.fragmentContainerView
+            layoutParams = FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.MATCH_PARENT,
+                FrameLayout.LayoutParams.MATCH_PARENT
+            )
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,13 +33,13 @@ class MainActivity : AppCompatActivity() {
         val rootView = findViewById<ViewGroup>(R.id.rootView)
 
         rootView.removeAllViews()
-        rootView.addView(fragmentContainer)
+        rootView.addView(fragmentContainerView)
     }
 
     private fun addFragment() {
-        if (supportFragmentManager.findFragmentById(R.id.fragmentContainer) == null) {
+        if (supportFragmentManager.findFragmentById(R.id.fragmentContainerView) == null) {
             supportFragmentManager.beginTransaction()
-                .add(R.id.fragmentContainer, MainFragment())
+                .add(R.id.fragmentContainerView, MainFragment())
                 .commit()
         }
     }
