@@ -25,11 +25,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        addFragmentContainer() // move this call to 'onCreate(savedInstanceState:)' for the 'MainActivityInstrumentedTest.recreate_activity()' test method to pass
+        addFragmentContainerView() // move this call to 'onCreate(savedInstanceState:)' for the 'MainActivityInstrumentedTest.recreate_activity()' test method to pass
         addFragment()
     }
 
-    private fun addFragmentContainer() {
+    private fun addFragmentContainerView() {
         val rootView = findViewById<ViewGroup>(R.id.rootView)
 
         rootView.removeAllViews()

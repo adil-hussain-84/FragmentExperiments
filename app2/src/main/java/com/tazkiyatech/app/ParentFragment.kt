@@ -32,11 +32,11 @@ class ParentFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        addFragmentContainer() // move this call to 'onViewCreated(view:savedInstanceState:)' for the 'MainActivityInstrumentedTest.recreate_activity()' test method to pass
+        addFragmentContainerView() // move this call to 'onViewCreated(view:savedInstanceState:)' for the 'MainActivityInstrumentedTest.recreate_activity()' test method to pass
         addFragment()
     }
 
-    private fun addFragmentContainer() {
+    private fun addFragmentContainerView() {
         val rootView = requireView().findViewById<ViewGroup>(R.id.rootView)
 
         rootView.removeAllViews()
