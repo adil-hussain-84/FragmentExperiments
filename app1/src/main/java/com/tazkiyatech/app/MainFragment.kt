@@ -1,4 +1,4 @@
-package com.tazkiyatech.app1
+package com.tazkiyatech.app
 
 import android.os.Bundle
 import android.view.LayoutInflater

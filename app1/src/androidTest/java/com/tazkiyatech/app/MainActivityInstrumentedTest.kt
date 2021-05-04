@@ -1,4 +1,4 @@
-package com.tazkiyatech.app1
+package com.tazkiyatech.app
 
 import androidx.lifecycle.Lifecycle
 import androidx.test.core.app.ActivityScenario
