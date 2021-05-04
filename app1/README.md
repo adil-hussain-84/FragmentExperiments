@@ -2,9 +2,9 @@
 
 This Android application demonstrates that a Fragment does not re-attach to its View on Activity recreation when the View is added to the View hierarchy at any point after the `Activity.onCreate(savedInstanceState:)` lifecycle method.
 
-Run the `recreate_activity()` test method in the [MainActivityInstrumentedTest](app1/src/androidTest/java/com/tazkiyatech/app/MainActivityInstrumentedTest.kt) class to see the problem.
+Run the `recreate_activity()` test method in the [MainActivityInstrumentedTest](src/androidTest/java/com/tazkiyatech/app/MainActivityInstrumentedTest.kt) class to see the problem.
 
-Note that moving the `addFragmentContainerView()` call in [MainActivity](app1/src/main/java/com/tazkiyatech/app/MainActivity.kt) from the `onStart()` method to the `onCreate(savedInstanceState:)` method fixes the failing test method.
+Note that moving the `addFragmentContainerView()` call in [MainActivity](src/main/java/com/tazkiyatech/app/MainActivity.kt) from the `onStart()` method to the `onCreate(savedInstanceState:)` method fixes the failing test method.
 
 ##### Additional links
 
