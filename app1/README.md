@@ -6,7 +6,7 @@ Run the `recreate_activity()` test method in the [MainActivityInstrumentedTest](
 
 Note that moving the `addFragmentContainerView()` call in [MainActivity](src/main/java/com/tazkiyatech/app/MainActivity.kt) from the `onStart()` method to the `onCreate(savedInstanceState:)` method fixes the failing test method.
 
-##### Additional links
+##### Links
 
-* See [here](https://issuetracker.google.com/issues/180538371) for a closed issue in IssueTracker which should have fixed this issue in version [1.3.1](https://developer.android.com/jetpack/androidx/releases/fragment#1.3.1) of the [fragment](https://developer.android.com/jetpack/androidx/releases/fragment) library.
+* See [here](https://issuetracker.google.com/issues/187105532) for the item in IssueTracker which has been created for this bug.
 * See [here](https://stackoverflow.com/questions/67322220/) for a StackOverflow thread which describes why this bug is problematic.
